@@ -29,26 +29,27 @@ export default function ResumeModal({ isOpen, onClose }) {
     const fullText = `
 PAWAN KUMAR
 AI Automation & Workflow Specialist | EdTech Content & Strategy Professional
-${personalInfo.email ? `Email: ${personalInfo.email} | ` : ''}${personalInfo.phone ? `Phone: ${personalInfo.phone} | ` : ''}Location: ${personalInfo.location}
-LinkedIn: ${personalInfo.linkedIn}
+${personalInfo.email ? `Email: ${personalInfo.email} | ` : ''}Location: ${personalInfo.location}
+LinkedIn: ${personalInfo.linkedIn} | GitHub: ${personalInfo.github}
+n8n Creator: ${personalInfo.n8nCreator}
 
 PROFESSIONAL SUMMARY
 ${personalInfo.summary}
 
 CORE SKILLS
 - n8n Workflow Automation (multi-step, conditional, event-driven, error handling)
-- LLM-Based Systems (prompt engineering, content generation, personalization)
+- Agentic AI & Multi-Agent Systems (autonomous loops, tool calling, cognitive architectures)
+- LLM-Based Systems & Prompt Engineering (structured outputs, difficulty calibration)
 - API Integration & JSON Handling (REST, webhooks, authentication)
-- AI Content Orchestration (MCQs, summaries, adaptive assessments)
-- Vector Database Concepts (RAG-style retrieval workflows)
-- Workflow Optimization & Debugging
+- AI Content Orchestration (automated MCQs, Telegram polls, adaptive assessments)
+- Vector Database & RAG Concepts (Google Sheets RAG, retrieval workflows)
+- Claude Code & Modern AI Tooling (agentic CLI development, rapid prototyping)
 - Python (Automation & Scripting)
-- Machine Learning (Applied / Conceptual)
-- Docker & Local LLM Deployment (Hands-on)
+- Docker & Local LLM Deployment (Qwen, self-hosted endpoints)
 - Bilingual Communication (Hindi & English)
 
 INDEPENDENT AI AUTOMATION PROJECTS
-1. Educate UrSelf – Autonomous AI-Powered Learning System
+1. Automated MCQ Generation & Telegram Poll Posting Workflow with AI (Educate UrSelf)
 Role: Creator & Automation Architect
 - Designed and deployed an AI-driven Telegram education channel using n8n, OpenAI APIs, and Telegram Bot API.
 - Built multi-step workflows for automatic generation and publishing of MCQs, summaries, and topic-wise content.
@@ -66,8 +67,13 @@ Live: https://educateurselfias.vercel.app/
 - Configured Open WebUI as a front-end interface for prompt testing and response evaluation.
 - Experimented with prompt structuring, context handling, and output refinement for educational workflows.
 
+4. Daily Current Affairs Scraper – Apify Actor (Python)
+GitHub: https://github.com/educateurself4-crypto/current-affairs-scraper
+- Engineered an automated Apify Actor in Python to scrape, clean, and structure daily current affairs pages.
+- Configured request queues, input validation schemas, and dataset storage for automated AI ingestion.
+
 PROFESSIONAL EXPERIENCE
-- Freelance AI Automation Engineer – The Cobalt Partners (via Upwork)
+- Freelance AI Automation Engineer (Independent Client Engagements / Upwork)
 - Associate Manager: PWOnlyIAS – Physics Wallah
 - Assistant Manager: NTPC Ltd
 - Content Developer: Vajiram | KSG | ToppersNotes | KalamIAS Academy
@@ -139,9 +145,10 @@ EDUCATION
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-slate-400 print:text-slate-600 font-mono">
               {personalInfo.email && <span>📧 {personalInfo.email}</span>}
-              {personalInfo.phone && <span>📞 {personalInfo.phone}</span>}
               <span>📍 {personalInfo.location}</span>
               <span>🔗 linkedin.com/in/pawan-kumar-729565b9</span>
+              <span>💻 github.com/educateurself4-crypto</span>
+              <span>⚡ n8n.io/creators/gladiator</span>
             </div>
           </div>
 
@@ -161,15 +168,15 @@ EDUCATION
               CORE SKILLS
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-slate-300 print:text-slate-800">
-              <p>● <strong>n8n Workflow Automation</strong> (multi-step, conditional, event-driven, error handling)</p>
-              <p>● <strong>LLM-Based Systems</strong> (prompt engineering, content generation, personalization)</p>
-              <p>● <strong>API Integration & JSON Handling</strong> (REST, webhooks, authentication)</p>
-              <p>● <strong>AI Content Orchestration</strong> (MCQs, summaries, adaptive assessments)</p>
-              <p>● <strong>Vector Database Concepts</strong> (RAG-style retrieval workflows)</p>
-              <p>● <strong>Workflow Optimization & Debugging</strong></p>
+              <p>● <strong>n8n Workflow Automation</strong> (multi-step, event-driven, error handling)</p>
+              <p>● <strong>Agentic AI & Multi-Agent Systems</strong> (autonomous loops, tool calling)</p>
+              <p>● <strong>LLM Prompt Engineering</strong> (structured outputs, chain-of-thought)</p>
+              <p>● <strong>API Integration & Webhooks</strong> (REST, auth, schema parsing)</p>
+              <p>● <strong>AI Content Orchestration</strong> (automated MCQs, Telegram polls)</p>
+              <p>● <strong>RAG & Vector Concepts</strong> (Sheets RAG, retrieval workflows)</p>
+              <p>● <strong>Claude Code & GenAI Tooling</strong> (agentic CLI, rapid prototyping)</p>
+              <p>● <strong>Docker & Local LLM Deployment</strong> (Qwen on Docker)</p>
               <p>● <strong>Python</strong> (Automation & Scripting)</p>
-              <p>● <strong>Machine Learning</strong> (Applied / Conceptual)</p>
-              <p>● <strong>Docker & Local LLM Deployment</strong> (Hands-on)</p>
               <p>● <strong>Bilingual Communication</strong> (Hindi & English)</p>
             </div>
           </div>
@@ -184,7 +191,7 @@ EDUCATION
               <div>
                 <div className="flex justify-between items-baseline">
                   <h3 className="font-bold text-white print:text-black">
-                    Educate UrSelf – Autonomous AI-Powered Learning System
+                    Automated MCQ Generation & Telegram Poll Posting Workflow with AI (Educate UrSelf)
                   </h3>
                   <span className="text-xs text-brand-400 print:text-slate-600 font-mono">Creator & Automation Architect</span>
                 </div>
@@ -229,6 +236,22 @@ EDUCATION
                   <li>Explored feasibility of integrating the local model with n8n-based automation pipelines.</li>
                 </ul>
               </div>
+
+              {/* Project 4 */}
+              <div>
+                <div className="flex justify-between items-baseline">
+                  <h3 className="font-bold text-white print:text-black">
+                    Daily Current Affairs Scraper – Apify Actor (Python)
+                  </h3>
+                  <a href="https://github.com/educateurself4-crypto/current-affairs-scraper" target="_blank" rel="noreferrer" className="text-xs text-brand-400 print:text-blue-600 underline">
+                    GitHub Repo
+                  </a>
+                </div>
+                <ul className="list-disc list-inside text-slate-300 print:text-slate-800 space-y-1 mt-1 text-xs">
+                  <li>Engineered an automated Apify Actor in Python to crawl, structure, and store daily exam current affairs.</li>
+                  <li>Configured request queues, input schema validation, and dataset extraction for downstream AI workflows.</li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -240,7 +263,7 @@ EDUCATION
             <div className="space-y-4">
               <div>
                 <h3 className="font-bold text-white print:text-black">
-                  Freelance AI Automation Engineer – The Cobalt Partners (via Upwork)
+                  Freelance AI Automation Engineer (Independent Client Engagements / Upwork)
                 </h3>
                 <ul className="list-disc list-inside text-slate-300 print:text-slate-800 space-y-1 mt-1 text-xs">
                   <li>Design and develop production-grade automation workflows and AI agents using n8n for client use cases.</li>

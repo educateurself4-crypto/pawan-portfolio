@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, CheckCircle, Cpu, Database, Layers, ArrowUpRight } from 'lucide-react';
+import { X, ExternalLink, CheckCircle, Cpu, Database, Layers, ArrowUpRight, Github } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -107,7 +107,18 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           <div className="flex items-center gap-3">
-            {project.demoUrl && (
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 shadow transition-all"
+              >
+                <Github className="w-4 h-4" />
+                <span>View on GitHub</span>
+              </a>
+            )}
+            {project.demoUrl && project.demoUrl !== project.githubUrl && (
               <a
                 href={project.demoUrl}
                 target="_blank"

@@ -1,18 +1,20 @@
 export const personalInfo = {
   name: "Pawan Kumar",
   title: "AI Automation & Workflow Specialist",
-  subTitle: "EdTech Content & Strategy Professional | GATE 99.71%ile Engineer",
-  email: "",
+  subTitle: "Architecting Intelligent Systems & Agentic Workflows for High-Stakes Domains | GATE 99.71%ile",
+  email: "educateurself4@gmail.com",
   phone: "",
   location: "India (Open to Remote / Hybrid Roles)",
   linkedIn: "https://www.linkedin.com/in/pawan-kumar-729565b9",
-  summary: `Mechanical Engineering graduate and GATE ranker (99.71 Percentile) with over 8 years of blended experience spanning academic content leadership, operations management, and AI-driven automation. Former Assistant Manager at NTPC Ltd with hands-on experience in manpower management and system operations, and Associate Manager at PWOnlyIAS (Physics Wallah) overseeing academic workflows and quality. Independently design and deploy n8n-based automation systems, LLM-powered workflows, and API-driven pipelines to streamline content delivery and knowledge operations. Currently working as a freelance Automation Engineer, delivering end-to-end automation solutions for content, data processing, and business workflows.`,
+  github: "https://github.com/educateurself4-crypto",
+  n8nCreator: "https://n8n.io/creators/gladiator/",
+  summary: `I architect intelligent systems and autonomous automation workflows for high-stakes domains. Mechanical Engineering graduate and GATE ranker (99.71 Percentile, IISc Bangalore) with over 8 years of blended experience spanning academic content leadership, operations management, and AI-driven automation. Former Assistant Manager at NTPC Ltd with hands-on experience in manpower management and system operations, and Associate Manager at PW (Physics Wallah) overseeing academic workflows and quality. Independently design and deploy agentic AI systems, n8n-based automation pipelines, LLM reasoning workflows, and serverless architectures. Currently working as an active freelance Automation Engineer, delivering end-to-end automation solutions for content, data processing, and business workflows.`,
   availability: "Available for Projects & Full-Time AI Engineering Roles",
   stats: [
     { label: "GATE Percentile", value: "99.71%", highlight: "Mechanical Engineering" },
     { label: "Blended Experience", value: "8+ Yrs", highlight: "Ops, EdTech & AI" },
     { label: "Automation Reliability", value: "99.9%", highlight: "Retries & Error Routing" },
-    { label: "Live EdTech Portal", value: "10k+", highlight: "Aspirant Reach" }
+    { label: "Professional Reach", value: "2K+", highlight: "LinkedIn Network & Community" }
   ]
 };
 
@@ -114,18 +116,18 @@ export const workflowSimulation = {
 export const projects = [
   {
     id: "educate-urself",
-    title: "Educate UrSelf – Autonomous AI-Powered Learning System",
-    subtitle: "AI-Driven Automated Telegram Education Ecosystem",
+    title: "Automated MCQ Generation & Telegram Poll Posting Workflow with AI",
+    subtitle: "Educate UrSelf – Autonomous AI-Powered Learning System (n8n + GPT-4 + Telegram)",
     category: "AI Automation",
-    badge: "Featured Automation",
+    badge: "Featured Spotlight",
     role: "Creator & Automation Architect",
-    summary: "An autonomous educational delivery engine operating on Telegram using n8n, OpenAI APIs, and Telegram Bot API. Publishes high-yield MCQs, summaries, and bilingual UPSC study materials with zero manual daily effort.",
+    summary: "An autonomous educational delivery engine operating on Telegram using n8n, OpenAI APIs, and Telegram Bot API. Dispatches high-yield MCQs, interactive polls, explanatory notes, and bilingual UPSC study materials with zero manual daily effort.",
     highlights: [
-      "Designed and deployed an AI-driven Telegram education channel using n8n, OpenAI APIs, and Telegram Bot API",
-      "Built multi-step workflows for automatic generation and publishing of MCQs, summaries, and topic-wise content",
-      "Implemented conditional routing, retries, alerts, and error-handling mechanisms for 99.9% uptime",
-      "Integrated Google Sheets RAG Database and APIs for content tracking, spaced repetition, and analytics",
-      "Created a scalable, low-maintenance architecture enabling continuous content delivery with minimal human overhead"
+      "Architected autonomous multi-step n8n pipelines orchestrating Telegram Bot API, OpenAI GPT-4, and Google Sheets RAG",
+      "Engineered automated MCQ generation, bilingual translation, and native interactive Telegram poll dispatch",
+      "Implemented conditional routing, retry mechanisms, execution alerts, and error routing for 99.9% uptime",
+      "Integrated Google Sheets database for automated tracking, syllabus coverage balance, and spaced repetition",
+      "Scalable, zero-touch architecture enabling continuous content delivery with minimal human overhead"
     ],
     techStack: ["n8n", "OpenAI GPT-4", "Telegram Bot API", "Google Sheets API", "Webhooks", "JSON"],
     metrics: [
@@ -188,7 +190,7 @@ export const projects = [
   {
     id: "client-automation-pipelines",
     title: "Production Business Automation & AI Agents",
-    subtitle: "Client Solutions via The Cobalt Partners (Upwork)",
+    subtitle: "Enterprise Client Solutions & Automation Pipelines (Independent & Upwork)",
     category: "AI Automation",
     badge: "Client Work",
     role: "Freelance AI Automation Engineer",
@@ -201,12 +203,80 @@ export const projects = [
     techStack: ["n8n", "REST APIs", "Webhooks", "OpenAI", "Zapier/Make", "JSON/Data Parsing"],
     metrics: [
       { label: "Deliverables", value: "Production Workflows" },
-      { label: "Platform", value: "Upwork Verified" },
+      { label: "Platform", value: "Upwork & Independent" },
       { label: "Focus", value: "AI Agents & Pipelines" }
     ],
     demoUrl: null,
     githubUrl: null,
     color: "from-amber-600 to-orange-600"
+  },
+  {
+    id: "current-affairs-scraper",
+    title: "Daily Current Affairs Scraper – Apify Actor",
+    subtitle: "Python Web Scraping & Structured Dataset Pipeline",
+    category: "Web Scraping & Data",
+    badge: "Apify Actor",
+    role: "Author & Automation Developer",
+    summary: "A production Apify Actor built in Python that automatically crawls, extracts, and structures daily current affairs from news and educational portals into clean datasets for downstream AI processing and automated study feeds.",
+    highlights: [
+      "Engineered an automated Apify Actor in Python to scrape and structure daily competitive examination current affairs",
+      "Configured robust request queues, dynamic input schemas, and data validation using the Apify SDK",
+      "Automated extraction of article titles, categories, dates, summaries, and full editorial bodies into clean JSON datasets",
+      "Designed for seamless integration with downstream n8n pipelines, webhooks, and vector storage for AI-assisted study material generation"
+    ],
+    techStack: ["Python", "Apify SDK", "Web Scraping", "Request Queue", "Datasets", "JSON"],
+    metrics: [
+      { label: "Platform", value: "Apify Actor" },
+      { label: "Language", value: "Python 3" },
+      { label: "Data Format", value: "Clean JSON / Dataset" }
+    ],
+    demoUrl: "https://github.com/educateurself4-crypto/current-affairs-scraper",
+    githubUrl: "https://github.com/educateurself4-crypto/current-affairs-scraper",
+    color: "from-cyan-600 to-blue-600"
+  },
+  {
+    id: "canada-b2b-leadgen",
+    title: "Canada B2B Lead Generation",
+    subtitle: "Python-based B2B Lead Scraping Tool",
+    category: "Web Scraping & Data",
+    badge: "Recent GitHub Project",
+    role: "Developer",
+    summary: "A Python tool for generating and scraping B2B leads from Canadian business directories.",
+    highlights: [
+      "Automated extraction of business contacts and company details",
+      "Built with Python for efficient data processing",
+      "Ready-to-use lead generation pipeline"
+    ],
+    techStack: ["Python", "Web Scraping", "Data Processing"],
+    metrics: [
+      { label: "Platform", value: "GitHub" },
+      { label: "Language", value: "Python" }
+    ],
+    demoUrl: null,
+    githubUrl: "https://github.com/educateurself4-crypto/canada-b2b-leadgen",
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    id: "whatsapp-bulk-sender",
+    title: "WhatsApp Bulk Sender",
+    subtitle: "Automated WhatsApp Messaging Script",
+    category: "Automation",
+    badge: "Recent GitHub Project",
+    role: "Developer",
+    summary: "A Python script designed to automate sending bulk messages via WhatsApp for marketing and outreach.",
+    highlights: [
+      "Automated bulk messaging system for WhatsApp",
+      "Developed in Python for robust automation",
+      "Streamlines marketing and outreach efforts"
+    ],
+    techStack: ["Python", "Automation", "WhatsApp API/Web"],
+    metrics: [
+      { label: "Platform", value: "GitHub" },
+      { label: "Language", value: "Python" }
+    ],
+    demoUrl: null,
+    githubUrl: "https://github.com/educateurself4-crypto/whatsapp-bulk-sender",
+    color: "from-green-500 to-emerald-500"
   }
 ];
 
@@ -225,12 +295,14 @@ export const skillCategories = [
   {
     title: "AI & Large Language Models",
     icon: "Brain",
-    description: "Harnessing foundation models for content and reasoning",
+    description: "Harnessing foundation models for content, reasoning, and autonomous execution",
     skills: [
-      { name: "LLM-Based Systems & Agents", level: 90, tag: "Advanced", desc: "Prompt engineering, function calling, structured outputs" },
-      { name: "AI Content Orchestration", level: 95, tag: "Specialist", desc: "Automated MCQ generation, summaries, adaptive learning modules" },
-      { name: "RAG & Vector Concepts", level: 85, tag: "Proficient", desc: "Knowledge retrieval, context augmentation, Google Sheets RAG" },
-      { name: "Local LLM Deployment (Qwen)", level: 85, tag: "Hands-on", desc: "Dockerized inference, Open WebUI, self-hosted endpoints" }
+      { name: "Agentic AI & Multi-Agent Workflows", level: 92, tag: "Specialist", desc: "Autonomous agent loops, tool calling, cognitive architectures" },
+      { name: "LLM Prompt Engineering & System Design", level: 94, tag: "Advanced", desc: "Structured outputs, chain-of-thought, difficulty calibration" },
+      { name: "AI Content Orchestration (Automated MCQs)", level: 95, tag: "Specialist", desc: "Telegram poll automation, high-yield notes, adaptive delivery" },
+      { name: "RAG & Vector Concepts (Sheets/Vectors)", level: 88, tag: "Proficient", desc: "Knowledge retrieval, context augmentation, Google Sheets RAG" },
+      { name: "Claude Code & Modern GenAI Tooling", level: 90, tag: "Hands-on", desc: "Agentic developer workflows, rapid prototyping, CLI orchestration" },
+      { name: "Local LLM Deployment (Qwen on Docker)", level: 85, tag: "Hands-on", desc: "Dockerized inference, Open WebUI, self-hosted endpoints" }
     ]
   },
   {
@@ -260,7 +332,7 @@ export const skillCategories = [
 export const experience = [
   {
     role: "Freelance AI Automation Engineer",
-    company: "The Cobalt Partners (via Upwork)",
+    company: "Independent Client Engagements / Upwork",
     period: "Present",
     badge: "Current Engagement",
     type: "Freelance / Remote",
@@ -306,7 +378,7 @@ export const experience = [
     ]
   },
   {
-    role: "Educator (History, Geography, Polity)",
+    role: "Educator (History, Geography, Polity, Science & Technology)",
     company: "Unacademy & Chahal Academy",
     period: "Past",
     badge: "Pedagogy",

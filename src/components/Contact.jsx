@@ -10,13 +10,19 @@ import {
   MessageSquare, 
   ExternalLink,
   Sparkles,
-  Clock
+  Clock,
+  Loader2,
+  AlertCircle,
+  Github,
+  Workflow
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '', roleType: 'Freelance Automation' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [copiedType, setCopiedType] = useState(null);
 
   const copyToClipboard = (text, type) => {
@@ -25,19 +31,58 @@ export default function Contact() {
     setTimeout(() => setCopiedType(null), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     
-    // Simulate submission
-    setSubmitted(true);
-    setTimeout(() => {
-      if (personalInfo.email) {
-        const subject = encodeURIComponent(`Inquiry from ${formData.name} regarding ${formData.roleType}`);
-        const body = encodeURIComponent(`Hi Pawan,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.email})`);
-        window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "415cef7f-fd17-426a-9897-4f6e5146c34e";
+
+    // If Web3Forms access key is configured, submit via Web3Forms API
+    if (accessKey && accessKey !== "YOUR_ACCESS_KEY_HERE") {
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: formData.name,
+            email: formData.email,
+            subject: `Portfolio Inquiry from ${formData.name} (${formData.roleType})`,
+            message: formData.message,
+            roleType: formData.roleType,
+            from_name: "Pawan Kumar Portfolio",
+          }),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          setSubmitted(true);
+        } else {
+          setErrorMessage(data.message || "Failed to send message. Please try again or connect via LinkedIn.");
+        }
+      } catch (err) {
+        setErrorMessage("Network connection error. Please try again or reach out on LinkedIn.");
+      } finally {
+        setIsSubmitting(false);
       }
-    }, 1200);
+    } else {
+      // Fallback to mailto if access key is not yet set
+      setTimeout(() => {
+        if (personalInfo.email) {
+          const subject = encodeURIComponent(`Inquiry from ${formData.name} regarding ${formData.roleType}`);
+          const body = encodeURIComponent(`Hi Pawan,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.email})`);
+          window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+        }
+        setSubmitted(true);
+        setIsSubmitting(false);
+      }, 800);
+    }
   };
 
   return (
@@ -122,25 +167,76 @@ export default function Contact() {
               )}
 
               {/* LinkedIn Card */}
-              <a
-                href={personalInfo.linkedIn}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-colors group"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="p-2.5 rounded-lg bg-blue-950 text-blue-400 border border-blue-800">
-                    <Linkedin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-mono text-slate-400">LinkedIn Profile</div>
-                    <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">
-                      pawan-kumar-729565b9
+              {personalInfo.linkedIn && (
+                <a
+                  href={personalInfo.linkedIn}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-colors group"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="p-2.5 rounded-lg bg-blue-950 text-blue-400 border border-blue-800">
+                      <Linkedin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-mono text-slate-400">LinkedIn Profile</div>
+                      <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">
+                        pawan-kumar-729565b9
+                      </div>
                     </div>
                   </div>
-                </div>
-                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-blue-400" />
-              </a>
+                  <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-blue-400" />
+                </a>
+              )}
+
+              {/* GitHub Card */}
+              {personalInfo.github && (
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-600 transition-colors group"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="p-2.5 rounded-lg bg-slate-950 text-slate-300 border border-slate-800">
+                      <Github className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-mono text-slate-400">GitHub Profile</div>
+                      <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-slate-200 transition-colors">
+                        educateurself4-crypto
+                      </div>
+                    </div>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-slate-300" />
+                </a>
+              )}
+
+              {/* n8n Verified Creator Card */}
+              {personalInfo.n8nCreator && (
+                <a
+                  href={personalInfo.n8nCreator}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-gradient-to-r from-orange-950/30 via-slate-900/90 to-red-950/30 border border-orange-700/50 hover:border-orange-500 transition-colors group shadow-sm shadow-orange-950/30"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="p-2.5 rounded-lg bg-orange-950 text-orange-400 border border-orange-800">
+                      <Workflow className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-mono text-orange-400 flex items-center gap-1.5">
+                        <span>n8n Verified Creator</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+                      </div>
+                      <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-orange-300 transition-colors">
+                        gladiator (@n8n.io)
+                      </div>
+                    </div>
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-orange-400/70 group-hover:text-orange-400" />
+                </a>
+              )}
 
               {/* Location Card */}
               <div className="flex items-center space-x-3 p-3.5 rounded-xl bg-slate-900/40 border border-slate-800 text-xs text-slate-400 font-mono">
@@ -172,33 +268,33 @@ export default function Contact() {
 
               {submitted ? (
                 <div className="py-12 text-center space-y-4 animate-in fade-in zoom-in duration-300">
-                  <div className="w-12 h-12 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-700 flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-700 flex items-center justify-center mx-auto shadow-lg shadow-emerald-950/50">
                     <Check className="w-6 h-6" />
                   </div>
                   <h4 className="text-lg font-bold text-white">
-                    {personalInfo.email ? "Opening Email Client..." : "Inquiry Prepared!"}
+                    Message Sent Successfully!
                   </h4>
-                  <p className="text-xs text-slate-400 max-w-md mx-auto">
-                    {personalInfo.email ? (
-                      <>Your inquiry details have been formatted and your default email app is opening to send directly to <strong>{personalInfo.email}</strong>.</>
-                    ) : (
-                      <>Your inquiry details have been saved. You can connect and reach out directly via LinkedIn.</>
-                    )}
+                  <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong>{formData.name || 'there'}</strong>. Your inquiry has been delivered directly to Pawan. You will receive a response at <strong>{formData.email || 'your email'}</strong> shortly.
                   </p>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="flex items-center justify-center gap-3 pt-2">
                     {personalInfo.linkedIn && (
                       <a
                         href={personalInfo.linkedIn}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white hover:bg-brand-500 transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white hover:bg-brand-500 transition-colors shadow-md shadow-brand-600/30"
                       >
-                        Connect on LinkedIn
+                        <Linkedin className="w-3.5 h-3.5" />
+                        <span>Connect on LinkedIn</span>
                       </a>
                     )}
                     <button
-                      onClick={() => setSubmitted(false)}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-200 hover:bg-slate-700"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: '', email: '', message: '', roleType: 'Freelance Automation' });
+                      }}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors"
                     >
                       Send Another Message
                     </button>
@@ -258,12 +354,29 @@ export default function Contact() {
                     ></textarea>
                   </div>
 
+                  {errorMessage && (
+                    <div className="p-3 rounded-xl bg-red-950/60 border border-red-800/80 text-xs text-red-300 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.01]"
+                    disabled={isSubmitting}
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message & Connect</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message & Connect</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}

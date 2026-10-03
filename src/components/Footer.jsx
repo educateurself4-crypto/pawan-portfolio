@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, ArrowUp, Mail, Phone, Linkedin, Heart } from 'lucide-react';
+import { Bot, ArrowUp, Mail, Phone, Linkedin, Heart, Github, Workflow } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer({ onOpenResume }) {
@@ -39,6 +39,16 @@ export default function Footer({ onOpenResume }) {
               {personalInfo.linkedIn && (
                 <a href={personalInfo.linkedIn} target="_blank" rel="noreferrer" className="hover:text-white p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 transition-colors" title="LinkedIn">
                   <Linkedin className="w-4 h-4" />
+                </a>
+              )}
+              {personalInfo.github && (
+                <a href={personalInfo.github} target="_blank" rel="noreferrer" className="hover:text-white p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 transition-colors" title="GitHub">
+                  <Github className="w-4 h-4" />
+                </a>
+              )}
+              {personalInfo.n8nCreator && (
+                <a href={personalInfo.n8nCreator} target="_blank" rel="noreferrer" className="hover:text-orange-400 p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 transition-colors" title="n8n Verified Creator">
+                  <Workflow className="w-4 h-4 text-orange-400" />
                 </a>
               )}
             </div>

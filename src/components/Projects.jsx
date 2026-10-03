@@ -9,7 +9,8 @@ import {
   Radio, 
   Server, 
   Bot,
-  Zap
+  Zap,
+  Github
 } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
@@ -18,7 +19,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'AI Automation', 'Full-Stack + Automation', 'LLMs & DevOps'];
+  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
   const filteredProjects = activeCategory === 'All'
     ? projects
@@ -128,17 +129,32 @@ export default function Projects() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
 
-                {project.demoUrl && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition-colors"
-                  >
-                    <span>Live App</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
-                  </a>
-                )}
+                <div className="flex items-center gap-2">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors"
+                      title="View GitHub Repository"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      <span>Code</span>
+                    </a>
+                  )}
+
+                  {project.demoUrl && project.demoUrl !== project.githubUrl && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition-colors"
+                    >
+                      <span>Live App</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

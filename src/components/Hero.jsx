@@ -12,7 +12,9 @@ import {
   Layers, 
   Cpu, 
   Award,
-  Play
+  Play,
+  Github,
+  Workflow
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -143,16 +145,47 @@ export default function Hero({ onOpenResume }) {
               )}
 
               {/* LinkedIn Link */}
-              <a 
-                href={personalInfo.linkedIn}
-                target="_blank" 
-                rel="noreferrer"
-                className="flex items-center gap-1.5 bg-slate-900/90 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-blue-500/50 text-slate-300 hover:text-blue-400 transition-all"
-              >
-                <Linkedin className="w-3.5 h-3.5 text-blue-400" />
-                <span>LinkedIn</span>
-                <ExternalLink className="w-3 h-3 text-slate-500" />
-              </a>
+              {personalInfo.linkedIn && (
+                <a 
+                  href={personalInfo.linkedIn}
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 bg-slate-900/90 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-blue-500/50 text-slate-300 hover:text-blue-400 transition-all"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-blue-400" />
+                  <span>LinkedIn</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              )}
+
+              {/* GitHub Link */}
+              {personalInfo.github && (
+                <a 
+                  href={personalInfo.github}
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 bg-slate-900/90 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all"
+                >
+                  <Github className="w-3.5 h-3.5 text-slate-300" />
+                  <span>GitHub</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              )}
+
+              {/* n8n Verified Creator Link */}
+              {personalInfo.n8nCreator && (
+                <a 
+                  href={personalInfo.n8nCreator}
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 bg-gradient-to-r from-orange-950/60 to-red-950/60 hover:from-orange-900/80 hover:to-red-900/80 px-3 py-1.5 rounded-lg border border-orange-600/50 hover:border-orange-500 text-orange-300 hover:text-orange-200 transition-all shadow-sm shadow-orange-950/50"
+                  title="Official n8n Verified Creator Profile"
+                >
+                  <Workflow className="w-3.5 h-3.5 text-orange-400" />
+                  <span className="font-semibold">n8n Creator</span>
+                  <ExternalLink className="w-3 h-3 text-orange-400/80" />
+                </a>
+              )}
             </div>
 
           </div>
