@@ -72,6 +72,15 @@ GitHub: https://github.com/educateurself4-crypto/current-affairs-scraper
 - Engineered an automated Apify Actor in Python to scrape, clean, and structure daily current affairs pages.
 - Configured request queues, input validation schemas, and dataset storage for automated AI ingestion.
 
+5. Canada B2B Lead Generation (Python)
+GitHub: https://github.com/educateurself4-crypto/canada-b2b-leadgen
+- Python tool for generating and scraping B2B leads from Canadian business directories.
+- Automated extraction of business contacts and company details.
+
+6. WhatsApp Bulk Sender (Python)
+GitHub: https://github.com/educateurself4-crypto/whatsapp-bulk-sender
+- Automated Python script designed for sending bulk messages via WhatsApp for marketing and outreach.
+
 PROFESSIONAL EXPERIENCE
 - Freelance AI Automation Engineer (Independent Client Engagements / Upwork)
 - Associate Manager: PWOnlyIAS – Physics Wallah
@@ -250,6 +259,37 @@ EDUCATION
                 <ul className="list-disc list-inside text-slate-300 print:text-slate-800 space-y-1 mt-1 text-xs">
                   <li>Engineered an automated Apify Actor in Python to crawl, structure, and store daily exam current affairs.</li>
                   <li>Configured request queues, input schema validation, and dataset extraction for downstream AI workflows.</li>
+                </ul>
+              </div>
+
+              {/* Project 5 */}
+              <div>
+                <div className="flex justify-between items-baseline">
+                  <h3 className="font-bold text-white print:text-black">
+                    Canada B2B Lead Generation (Python)
+                  </h3>
+                  <a href="https://github.com/educateurself4-crypto/canada-b2b-leadgen" target="_blank" rel="noreferrer" className="text-xs text-brand-400 print:text-blue-600 underline">
+                    GitHub Repo
+                  </a>
+                </div>
+                <ul className="list-disc list-inside text-slate-300 print:text-slate-800 space-y-1 mt-1 text-xs">
+                  <li>Python tool for generating and scraping B2B leads from Canadian business directories.</li>
+                  <li>Automated extraction of business contacts and company details.</li>
+                </ul>
+              </div>
+
+              {/* Project 6 */}
+              <div>
+                <div className="flex justify-between items-baseline">
+                  <h3 className="font-bold text-white print:text-black">
+                    WhatsApp Bulk Sender (Python)
+                  </h3>
+                  <a href="https://github.com/educateurself4-crypto/whatsapp-bulk-sender" target="_blank" rel="noreferrer" className="text-xs text-brand-400 print:text-blue-600 underline">
+                    GitHub Repo
+                  </a>
+                </div>
+                <ul className="list-disc list-inside text-slate-300 print:text-slate-800 space-y-1 mt-1 text-xs">
+                  <li>Automated Python script designed for sending bulk messages via WhatsApp for marketing and outreach.</li>
                 </ul>
               </div>
             </div>
